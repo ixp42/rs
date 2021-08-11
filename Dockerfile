@@ -15,7 +15,7 @@ RUN chmod +x /update_config.sh
 RUN wget https://github.com/inex/birdseye/releases/download/v1.2.2/birdseye-v1.2.2.tar.bz2 -O /srv/be.tar.bz2
 RUN cd /srv && tar jxf /srv/be.tar.bz2 && mv birdseye-v1.2.2 birdseye
 
-RUN cd /srv/birdseye && echo "BIRDC='/srv/birdseye/bin/birdc -2 -s /var/run/bird.ctl'" > .env && echo "CACHE_DRIVER=file" >> .env && chown -R lighttpd:lighttpd /srv/birdseye
+RUN cd /srv/birdseye && echo "BIRDC='/srv/birdseye/bin/birdc -2 -s /var/run/bird.ctl'" > .env && echo "CACHE_DRIVER=file" >> .env && echo "LOOKING_GLASS_ENABLED=true" >> .env && chown -R lighttpd:lighttpd /srv/birdseye
 
 ADD lighttpd.conf /etc/lighttpd/lighttpd.conf
 
