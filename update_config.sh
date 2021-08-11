@@ -3,7 +3,7 @@
 URL="https://portal.ix42.org/api/v4/router/gen-config"
 URL_DONE="https://portal.ix42.org/api/v4/router/updated"
 ETCPATH="/etc/bird"
-RUNPATH="/var/run/bird"
+RUNPATH="/var/run"
 LOGPATH="/var/log/bird"
 BIN="/usr/sbin/bird"
 
@@ -41,7 +41,7 @@ mkdir -p $RUNPATH
 
 cfile="${ETCPATH}/bird.conf"
 dest="${cfile}.$$"
-socket="${RUNPATH}/${handle}.ctl"
+socket="${RUNPATH}/bird.ctl"
 
 cmd="curl --fail -s -H \"X-IXP-Manager-API-Key: ${IXKEY}\" ${URL}/${handle} >${dest}"
 
