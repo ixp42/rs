@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  ixbird6:
+    container_name: ixbird6
+    image: ghcr.io/ixp42/rs:master
+    network_mode: 'host'
+    environment:
+      - IXKEY=
+      - IXHANDLE=rs-demo-6
+      - PORT=9001
+    restart: always
+  ixbird4:
+    container_name: ixbird4
+    image: ghcr.io/ixp42/rs:master
+    network_mode: 'host'
+    environment:
+      - IXKEY=
+      - IXHANDLE=rs-demo-4
+      - PORT=9002
+    restart: always
